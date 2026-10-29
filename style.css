@@ -66,3 +66,14 @@ nav a { color:var(--purple); text-decoration:none; margin-left:14px; font-weight
 .slot.clash { border-left-color:var(--magenta); background:#fff0f8; }
 .clash-tag { background:var(--magenta); color:#fff; font-size:11px;
   padding:2px 8px; border-radius:10px; }
+.course-card { background:#fff; border-radius:10px; padding:14px; margin-bottom:10px;
+  border-left:4px solid var(--purple); box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.course-card h4 { margin:0 0 4px; color:var(--purple); }
+.course-card p { margin:4px 0; font-size:14px; }
+.tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px;
+  background:#efe6fb; color:var(--purple); margin-right:6px; }
+.tag.done { background:#e3f6e8; color:#1d7a3a; }
+.total { font-weight:bold; margin:0 0 12px; }
+.link-btn { display:inline-block; margin-top:10px; padding:10px 16px;
+  background:var(--brand-gradient); color:#fff; border-radius:8px;
+  text-decoration:none; font-weight:bold; }
