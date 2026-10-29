@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | STEM TUTORIAL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="logo.jpg" alt="STEM logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#courses">Courses</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="welcome">
+      <h2 id="greeting">Welcome, student</h2>
+      <button id="changeName" class="btn-small">Change name</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="stat-num" id="statCourses">0</span>Courses</div>
+      <div class="stat"><span class="stat-num" id="statUnits">0</span>Total units</div>
+      <div class="stat"><span class="stat-num" id="statDone">0%</span>Progress</div>
+    </div>
+
+    <h3>My courses</h3>
+<div class="panel">
+  <form id="courseForm" class="course-form">
+  <input id="cCode" placeholder="Code e.g. MTH241" required>
+  <input id="cTitle" placeholder="Course title" required>
+  <input id="cUnits" type="number" min="1" max="6" placeholder="Units" required>
+  <select id="cStatus">
+    <option value="C">Compulsory</option>
+    <option value="E">Elective</option>
+    <option value="R">Required</option>
+  </select>
+  <select id="cDay">
+    <option value="">No fixed day</option>
+    <option value="Mon">Monday</option>
+    <option value="Tue">Tuesday</option>
+    <option value="Wed">Wednesday</option>
+    <option value="Thu">Thursday</option>
+    <option value="Fri">Friday</option>
+  </select>
+  <label>Start <input id="cStart" type="time"></label>
+  <label>End <input id="cEnd" type="time"></label>
+  <input id="cVenue" placeholder="Venue (optional)">
+  <button type="submit" class="btn-small">Add course</button>
+</form>
+    <input id="cCode" placeholder="Code e.g. MTH241" required>
+    <input id="cTitle" placeholder="Course title" required>
+    <input id="cUnits" type="number" min="1" max="6" placeholder="Units" required>
+    <select id="cStatus">
+      <option value="C">Compulsory</option>
+      <option value="E">Elective</option>
+      <option value="R">Required</option>
+    </select>
+    <button type="submit" class="btn-small">Add course</button>
+  </form>
+  <button id="loadSample" class="btn-ghost">Load sample 200L courses</button>
+  <ul id="courseList" class="course-list"></ul>
+</div>
+    
+
+    <h3>Weekly timetable</h3>
+<div class="panel" id="timetable"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 STEM TUTORIAL</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
