@@ -196,3 +196,65 @@ if (loadBtn) {
 
 showGreeting();
 renderCourses();
+// ---------- selected courses page ----------
+const STATUS = { C: "Compulsory", E: "Elective", R: "Required" };
+
+function renderSelected() {
+  const box = document.getElementById("selectedCourses");
+  if (!box) return;
+  box.innerHTML = "";
+
+  if (!courses.length) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = "You have not selected any courses yet.";
+    const a = document.createElement("a");
+    a.className = "link-btn";
+    a.href = "dashboard.html";
+    a.textContent = "Add courses on the dashboard";
+    box.append(p, a);
+    return;
+  }
+
+  const units = courses.reduce((s, c) => s + c.units, 0);
+  const total = document.createElement("p");
+  total.className = "total";
+  total.textContent = courses.length + " courses · " + units + " units";
+  box.appendChild(total);
+
+  courses.forEach(function (c) {
+    const card = document.createElement("div");
+    card.className = "course-card";
+
+    const h = document.createElement("h4");
+    h.textContent = c.code + " – " + c.title;
+
+    const meta = document.createElement("p");
+    meta.textContent = c.units + " units";
+
+    const tags = document.createElement("p");
+    const t1 = document.createElement("span");
+    t1.className = "tag";
+    t1.textContent = STATUS[c.status] || c.status;
+    tags.appendChild(t1);
+    if (c.done) {
+      const t2 = document.createElement("span");
+      t2.className = "tag done";
+      t2.textContent = "Done";
+      tags.appendChild(t2);
+    }
+
+    card.append(h, meta, tags);
+
+    if (c.day && c.start && c.end) {
+      const dayName = (DAYS.find(d => d[0] === c.day) || [c.day, c.day])[1];
+      const when = document.createElement("p");
+      when.textContent = dayName + ", " + fmt(c.start) + " – " + fmt(c.end) +
+        (c.venue ? " · " + c.venue : "");
+      card.appendChild(when);
+    }
+    box.appendChild(card);
+  });
+}
+
+renderSelected();
